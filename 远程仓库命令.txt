@@ -1,0 +1,104 @@
+1、创建ssh key部分
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo (master)
+$ ssh-keygen -t rsa -C "1379057957@qq.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/liux/.ssh/id_rsa):
+Created directory '/c/Users/liux/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/liux/.ssh/id_rsa.
+Your public key has been saved in /c/Users/liux/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:nW5+oxm27zF8/wNtJ9n71s/FIKwsKSnWpsca70KbcgU 1379057957@qq.com
+The key's randomart image is:
++---[RSA 3072]----+
+|                 |
+|                 |
+|                 |
+|    E    . o     |
+|     .  S o o oo |
+|    .... + o oo=o|
+|   .+== o B + +.*|
+|  ..=*o. = +o+ =+|
+|   oo=o   ==o. .@|
++----[SHA256]-----+
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~
+$ cd .ssh/
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~/.ssh
+$ pwd
+/c/Users/liux/.ssh
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~/.ssh
+$ ll
+total 5
+-rw-r--r-- 1 liux 197121 2602  8月  7 16:35 id_rsa
+-rw-r--r-- 1 liux 197121  571  8月  7 16:35 id_rsa.pub
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~/.ssh
+$ cat id_rsa.pub
+ssh-rsa AAAAB3Nza...
+
+
+
+3-1添加远程仓库
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo (master)
+$ echo "first demo" >> README.md
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo (master)
+$ git init
+Reinitialized existing Git repository in C:/Users/liux/Desktop/gitdemo/.git/
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo (master)
+$ git add README.md
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo (master)
+$ git commit -m "first commit"
+[master 399158b] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo (master)
+$ git remote add origin https://github.com/HsiuLiu/firstdemo.git
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo (master)
+$ git push -u origin master
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (10/10), 789 bytes | 789.00 KiB/s, done.
+Total 10 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/HsiuLiu/firstdemo.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo (master)
+$ vim README.md
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo (master)
+$ git add README.md
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo (master)
+$ git commit -m "second commit"
+[master 68da9dc] second commit
+ 1 file changed, 1 insertion(+)
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo (master)
+$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 296 bytes | 296.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/HsiuLiu/firstdemo.git
+   399158b..68da9dc  master -> master

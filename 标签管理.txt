@@ -1,0 +1,25 @@
+
+3-3 标签管理
+
+
+1.用途：管理区分项目版本，当一个版本开发完，打个标签，当需要回滚到以前的版本，直接使用标签回滚。
+
+2.命令：
+
+查看所有标签：git tag
+
+创建标签： git tag name 
+
+提交指定信息： git tag -a name -m "comment"
+
+删除标签： git tag -d name
+
+标签发布： git push origin name
+
+3.github中查看标签
+
+https://img2.mukewang.com/5bf3d00900010f9704170408.jpg
+
+4.命令行创建删除标签之后，记得发布到远程库： git push origin name
+
+5.sourcetree，创建删除标签，记得勾选同步到远程仓库（推送标签origin、从全部远端删除标签）

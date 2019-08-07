@@ -1,0 +1,43 @@
+2-2工作流
+
+1、git add后撤销
+
+git reset HEAD xxx
+
+git checkout -- xxx
+
+2、如果有commit
+
+git log
+
+git reset --hard xxxxxxxx(指定的log号) 
+
+
+
+一、git操作
+
+1、git status // git状态
+
+2、git add bash_demo.txt  // 提交到暂存区
+
+3、git commit -m "bash first commit"  // 提交到本地仓库
+
+4、git add bash_demo.txt
+
+5、git checkout -- bash_demo.txt // 暂存区丢弃
+
+6、git add bash_demo.txt
+
+7、git commit -m "second add"
+
+8、git log
+
+得到commit 号
+
+9、git reset --hard commit号  // 本地仓库回滚
+
+10、git rm bash_demo.txt // 本地文件清空
+
+11、git commit -m "delete bash_demo.txt" // 暂存区和本地仓库文件清空
+
+

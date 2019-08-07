@@ -1,0 +1,73 @@
+3-3分支管理
+
+创建分支：git branch +分支名
+
+查看所有分支：git branch  //*号代表当前所在分支
+
+切换分支：git checkout 分支名     //切换到指定分支
+
+合并到master分支：git merge 分支名     //首先切换到master分支，然后merge合并。
+
+删除分支：git branch -d 分支名  
+
+
+创建分支
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo/branch-demo (master)
+$ git branch feature
+
+查看所有分支
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo/branch-demo (master)
+$ git branch
+  feature
+* master
+
+切换分支
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo/branch-demo (master)
+$ git checkout feature
+Switched to branch 'feature'
+
+查看所有分支
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo/branch-demo (feature)
+$ git branch
+* feature
+  master
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo/branch-demo (feature)
+$ echo "new feature added" >> branch
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo/branch-demo (feature)
+$ git add branch
+warning: LF will be replaced by CRLF in branch.
+The file will have its original line endings in your working directory
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo/branch-demo (feature)
+$ git commit -m "new feature commit"
+[feature 8382190] new feature commit
+ 1 file changed, 1 insertion(+)
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo/branch-demo (feature)
+$ git status
+On branch feature
+nothing to commit, working tree clean
+
+切换到master分支，合并到master分支
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo/branch-demo (feature)
+$ git checkout master
+Switched to branch 'master'
+
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo/branch-demo (master)
+$ git merge feature
+Updating 20dcfe5..8382190
+Fast-forward
+ branch | 1 +
+ 1 file changed, 1 insertion(+)
+
+删除分支
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo/branch-demo (master)
+$ git branch -d feature
+Deleted branch feature (was 8382190).
+
+删除分支后查看分支
+liux@LAPTOP-C6FDMBBI MINGW64 ~/Desktop/gitdemo/branch-demo (master)
+$ git branch
+* master
